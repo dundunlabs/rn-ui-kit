@@ -1,4 +1,4 @@
-package com.dev.rnuikit;
+package dev.rnuikit;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

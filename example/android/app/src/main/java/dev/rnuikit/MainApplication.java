@@ -1,4 +1,4 @@
-package com.dev.rnuikit;
+package dev.rnuikit;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

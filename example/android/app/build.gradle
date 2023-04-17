@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.dev.rnuikit"
+    namespace "dev.rnuikit"
     defaultConfig {
-        applicationId "com.dev.rnuikit"
+        applicationId "dev.rnuikit"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
