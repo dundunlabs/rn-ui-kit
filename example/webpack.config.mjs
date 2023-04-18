@@ -1,6 +1,7 @@
 import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import * as Repack from '@callstack/repack';
+import repackConfig from './repack.config.js';
 
 /**
  * More documentation, installation, usage, motivation and differences with Metro is available at:
@@ -93,10 +94,10 @@ export default (env) => {
        * dependency. You might need it when using workspaces/monorepos or unconventional project
        * structure. For simple/typical project you won't need it.
        */
-      alias: {
-        'react': path.resolve('node_modules', 'react'),
-        'react-native': reactNativePath,
-      },
+      // alias: {
+      //   'react': path.resolve('node_modules', 'react'),
+      //   'react-native': reactNativePath,
+      // },
     },
     /**
      * Configures output.
@@ -231,6 +232,17 @@ export default (env) => {
           sourceMapFilename,
           assetsPath,
         },
+        extraChunks: [
+          {
+            include: repackConfig.LOCAL_CHUNK_REGEX,
+            type: 'local'
+          },
+          {
+            exclude: repackConfig.LOCAL_CHUNK_REGEX,
+            type: 'remote',
+            outputPath: path.join("build/outputs", platform, "remotes")
+          },
+        ]
       }),
     ],
   };
