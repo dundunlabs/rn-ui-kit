@@ -13,6 +13,8 @@
     "build:android": "yarn build --platform android"
   },
   "dependencies": {
+    "@emotion/native": "^11.10.6",
+    "@emotion/react": "^11.10.6",
     "react": "18.2.0",
     "react-native": "0.71.6",
     "react-native-mmkv": "^2.8.0"

@@ -94,10 +94,13 @@ export default (env) => {
        * dependency. You might need it when using workspaces/monorepos or unconventional project
        * structure. For simple/typical project you won't need it.
        */
-      // alias: {
-      //   'react': path.resolve('node_modules', 'react'),
-      //   'react-native': reactNativePath,
-      // },
+      alias: {
+        'react-native': reactNativePath,
+        ...repackConfig.SHARED_MODULES.reduce((alias, module) => {
+          alias[module] = path.resolve('node_modules', module)
+          return alias
+        }, {}),
+      },
     },
     /**
      * Configures output.
