@@ -2,6 +2,7 @@ import { ScriptManager, Script } from '@callstack/repack/client'
 import { mmkvStorage } from './utils'
 import { storage } from '../lib/mmkv'
 import repackConfig from '../../repack.config'
+import { Platform } from 'react-native'
 
 ScriptManager.shared.setStorage(mmkvStorage(storage))
 ScriptManager.shared.addResolver(async (scriptId, caller) => {
@@ -17,6 +18,6 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   }
 
   return {
-    url: Script.getRemoteURL(`https://my-domain.dev/${scriptId}`)
+    url: Script.getRemoteURL(`https://react-native-ui-kit.web.app/${Platform.OS}/remotes/${scriptId}`)
   }
 })
