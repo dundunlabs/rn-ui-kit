@@ -10,7 +10,8 @@
     "test": "jest",
     "build": "react-native webpack-bundle --dev false --entry-file index.js",
     "build:ios": "yarn build --platform ios",
-    "build:android": "yarn build --platform android"
+    "build:android": "yarn build --platform android",
+    "build:all": "yarn build:ios && yarn build:android"
   },
   "dependencies": {
     "@emotion/native": "^11.10.6",
