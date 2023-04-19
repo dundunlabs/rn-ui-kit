@@ -18,6 +18,7 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   }
 
   return {
-    url: Script.getRemoteURL(`https://react-native-ui-kit.web.app/${Platform.OS}/remotes/${scriptId}`)
+    url: Script.getRemoteURL(`https://react-native-ui-kit.web.app/${Platform.OS}/remotes/${scriptId}`),
+    cache: false
   }
 })
