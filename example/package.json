@@ -11,7 +11,7 @@
     "build": "react-native webpack-bundle --dev false --entry-file index.js",
     "build:ios": "yarn build --platform ios",
     "build:android": "yarn build --platform android",
-    "build:all": "yarn build:ios && yarn build:android"
+    "build:all": "rm -rf build && yarn build:ios && yarn build:android"
   },
   "dependencies": {
     "@react-native-masked-view/masked-view": "^0.2.9",
