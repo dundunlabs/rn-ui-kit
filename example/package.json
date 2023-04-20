@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:release": "yarn android --mode release",
     "ios": "react-native run-ios",
+    "ios:release": "yarn ios --mode release",
     "lint": "eslint .",
     "start": "react-native webpack-start",
     "test": "jest",
