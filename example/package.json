@@ -14,8 +14,6 @@
     "build:all": "yarn build:ios && yarn build:android"
   },
   "dependencies": {
-    "@emotion/native": "^11.10.6",
-    "@emotion/react": "^11.10.6",
     "@react-native-masked-view/masked-view": "^0.2.9",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
