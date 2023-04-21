@@ -5,6 +5,8 @@ import type { Colors } from "./colors"
 
 import { defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
 import type { AvatarProps, AvatarStyles, AvatarTextStyles } from "./components/avatar"
+import { defaultButtonProps } from "./components/button"
+import type { ButtonProps } from "./components/button"
 
 type Subset<K> = {
   [k in keyof K]?: K[k] extends object
@@ -25,6 +27,7 @@ export interface Theme {
   components: {
     Avatar: ComponentTheme<AvatarProps, AvatarStyles>
     AvatarText: ComponentTheme<undefined, AvatarTextStyles>
+    Button: ComponentTheme<ButtonProps, {}>
   }
 }
 
@@ -37,6 +40,10 @@ export const defaultTheme: Theme = {
     },
     AvatarText: {
       styles: defaultAvatarTextStyles
+    },
+    Button: {
+      defaultProps: defaultButtonProps,
+      styles: {}
     }
   }
 }

@@ -1,8 +1,12 @@
-import { Button, FlatList } from "react-native"
+import { FlatList } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { MainRouteParamList } from "../routes"
+import { Button } from 'rn-ui-kit'
 
-const components = ['Avatar'] as const
+const components = [
+  'Avatar',
+  'Button'
+] as const
 
 export default function Home({ navigation }: NativeStackScreenProps<MainRouteParamList>) {
   return (
@@ -11,9 +15,10 @@ export default function Home({ navigation }: NativeStackScreenProps<MainRoutePar
       renderItem={({ item }) => {
         return (
           <Button
-            title={item}
             onPress={() => navigation.navigate(item)}
-          />
+          >
+            {item}
+          </Button>
         )
       }}
     />
