@@ -5,12 +5,14 @@ import { defaultSpace } from "./space"
 
 import { AvatarTextProps, defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
 import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonStyles, defaultButtonTextStyles } from "./components/button"
+import { defaultGroupProps, defaultGroupStyles } from "./components/group"
 
 import type { Subset, ComponentTheme } from "../types"
 
 import type { Colors } from "./colors"
 import type { Space } from "./space"
 
+import type { GroupProps, GroupStyles } from "./components/group"
 import type { AvatarProps, AvatarStyles, AvatarTextStyles } from "./components/avatar"
 import type { ButtonProps, ButtonStyles } from "./components/button"
 
@@ -22,6 +24,7 @@ export interface Theme {
     AvatarText: ComponentTheme<Theme, AvatarTextProps, AvatarTextStyles>
     Button: ComponentTheme<Theme, ButtonProps, ButtonStyles>
     ButtonText: ComponentTheme<Theme, ButtonTextProps, ButtonTextStyles>
+    Group: ComponentTheme<Theme, GroupProps, GroupStyles>
   }
 }
 
@@ -44,6 +47,10 @@ export const defaultTheme: Theme = {
     ButtonText: {
       defaultProps: {},
       styles: defaultButtonTextStyles
+    },
+    Group: {
+      defaultProps: defaultGroupProps,
+      styles: defaultGroupStyles
     }
   }
 }

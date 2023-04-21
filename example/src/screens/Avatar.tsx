@@ -1,12 +1,12 @@
 import { ScrollView, Text, View } from 'react-native'
-import { Avatar } from 'rn-ui-kit'
+import { Group, Avatar } from 'rn-ui-kit'
 
 export default function AvatarScreen() {
   return (
     <ScrollView>
       <View>
         <Text>Variants</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Avatar
             source={{ uri: 'https://mui.com/static/images/avatar/1.jpg' }}
           />
@@ -18,12 +18,12 @@ export default function AvatarScreen() {
             variant='square'
             source={{ uri: 'https://mui.com/static/images/avatar/3.jpg' }}
           />
-        </View>
+        </Group>
       </View>
 
       <View>
         <Text>Sizes</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Avatar
             size='sm'
             source={{ uri: 'https://mui.com/static/images/avatar/1.jpg' }}
@@ -39,12 +39,12 @@ export default function AvatarScreen() {
             size={56}
             source={{ uri: 'https://mui.com/static/images/avatar/4.jpg' }}
           />
-        </View>
+        </Group>
       </View>
 
       <View>
         <Text>Letters</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Avatar
             alt='John Doe'
           />
@@ -52,12 +52,12 @@ export default function AvatarScreen() {
             alt='Doe John'
             style={{ backgroundColor: '#4f46e5' }}
           />
-        </View>
+        </Group>
       </View>
 
       <View>
         <Text>Fallbacks</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Avatar
             source={{ uri: 'https://mui.com/static/images/avatar/broken-image.jpg' }}
             alt='John Doe'
@@ -65,7 +65,7 @@ export default function AvatarScreen() {
           <Avatar
             source={{ uri: 'https://mui.com/static/images/avatar/broken-image.jpg' }}
           />
-        </View>
+        </Group>
       </View>
     </ScrollView>
   )

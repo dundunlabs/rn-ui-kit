@@ -1,12 +1,12 @@
 import { Alert, ScrollView, Text, View } from 'react-native'
-import { Button } from 'rn-ui-kit'
+import { Group, Button } from 'rn-ui-kit'
 
 export default function ButtonScreen() {
   return (
     <ScrollView>
       <View>
         <Text>Variants</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Button
             onPress={() => Alert.alert('Hello world!')}
           >
@@ -24,12 +24,12 @@ export default function ButtonScreen() {
           >
             Text
           </Button>
-        </View>
+        </Group>
       </View>
 
       <View>
         <Text>Sizes</Text>
-        <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+        <Group row spacing={2} align='flex-start'>
           <Button
             size='sm'
             onPress={() => Alert.alert('Hello world!')}
@@ -47,12 +47,12 @@ export default function ButtonScreen() {
           >
             lg
           </Button>
-        </View>
+        </Group>
       </View>
 
       <View>
         <Text>Colors</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Button
             onPress={() => Alert.alert('Hello world!')}
           >
@@ -76,19 +76,19 @@ export default function ButtonScreen() {
           >
             #d97706
           </Button>
-        </View>
+        </Group>
       </View>
 
       <View>
         <Text>Disabled</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Group row spacing={2}>
           <Button
             disabled
             onPress={() => Alert.alert('Hello world!')}
           >
             Disabled
           </Button>
-        </View>
+        </Group>
       </View>
     </ScrollView>
   )

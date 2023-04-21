@@ -1,5 +1,5 @@
 import React from "react";
-import type { PressableProps, TextProps, TextStyle, View, ViewStyle } from "react-native";
+import type { PressableProps, TextProps, TextStyle, ViewStyle } from "react-native";
 import type { Colors } from "../colors";
 import type { ComponentStyles } from "../../types";
 import type { Theme } from "..";

@@ -1,3 +1,7 @@
+export interface PropsWithStyle<S = any> {
+  style?: StyleProp<S> | undefined
+}
+
 export type ComponentStylesFn<T, P, S> = (theme: T, props: P) => S
 
 export type ComponentStyles<T, P, S> = S | ComponentStylesFn<T, P, S>
