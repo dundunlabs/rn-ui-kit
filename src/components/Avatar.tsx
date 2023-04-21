@@ -2,15 +2,18 @@ import React, { useState } from "react"
 import { Image, View, Text } from "react-native"
 import withStyle from "../hocs/withStyle"
 import withDefaultProps from "../hocs/withDefaultProps"
-import type { AvatarProps } from "../theme/components/avatar"
+import type { AvatarProps, AvatarTextProps } from "../theme/components/avatar"
+import { resolveComponentStyles } from "../utils"
 
 const StyledImage = withStyle(Image)<{ error: boolean }>((_, { error }) => error ? {} : {
   width: '100%',
   height: '100%'
 })
 
-const StyledText = withStyle(Text)<Pick<AvatarProps, 'size'>>(({ colors, components }, { size }) => {
-  const { styles } = components.AvatarText
+const StyledText = withStyle(Text)<AvatarTextProps>((theme, props) => {
+  const { colors, components: { AvatarText: { styles: cStyles } } } = theme
+  const { size } = props
+  const styles = resolveComponentStyles(cStyles, theme, props)
 
   return {
     color: colors.white,
@@ -57,8 +60,10 @@ function UnstyledAvatar({ style, source, imageStyle, textStyle, size, renderText
   )
 }
 
-const Avatar = withStyle(UnstyledAvatar)(({ colors,  components}, { variant, size }) => {
-  const { styles } = components.Avatar
+const Avatar = withStyle(UnstyledAvatar)((theme, props) => {
+  const { colors, components: { Avatar: { styles: cStyles } } } = theme
+  const { variant, size } = props
+  const styles = resolveComponentStyles(cStyles, theme, props)
 
   return {
     overflow: 'hidden',

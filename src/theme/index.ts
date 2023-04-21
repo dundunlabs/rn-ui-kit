@@ -1,49 +1,49 @@
-import deepMerge from "../utils/deepMerge"
+import { deepMerge } from "../utils"
 
 import { defaultColors } from "./colors"
+import { defaultSpace } from "./space"
+
+import { AvatarTextProps, defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
+import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonStyles, defaultButtonTextStyles } from "./components/button"
+
+import type { Subset, ComponentTheme } from "../types"
+
 import type { Colors } from "./colors"
+import type { Space } from "./space"
 
-import { defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
 import type { AvatarProps, AvatarStyles, AvatarTextStyles } from "./components/avatar"
-import { defaultButtonProps } from "./components/button"
-import type { ButtonProps } from "./components/button"
-
-type Subset<K> = {
-  [k in keyof K]?: K[k] extends object
-    ? Subset<K[k]>
-    : K[k] extends object | null
-      ? Subset<K[k]> | null
-      : K[k] extends object | null | undefined
-        ? Subset<K[k]> | null | undefined
-        : K[k]
-}
-
-type ComponentTheme<P, S> = P extends undefined
-  ? { defaultProps?: P, styles: S }
-  : { defaultProps: P, styles: S }
+import type { ButtonProps, ButtonStyles } from "./components/button"
 
 export interface Theme {
   colors: Colors
+  space: Space
   components: {
-    Avatar: ComponentTheme<AvatarProps, AvatarStyles>
-    AvatarText: ComponentTheme<undefined, AvatarTextStyles>
-    Button: ComponentTheme<ButtonProps, {}>
+    Avatar: ComponentTheme<Theme, AvatarProps, AvatarStyles>
+    AvatarText: ComponentTheme<Theme, AvatarTextProps, AvatarTextStyles>
+    Button: ComponentTheme<Theme, ButtonProps, ButtonStyles>
+    ButtonText: ComponentTheme<Theme, ButtonTextProps, ButtonTextStyles>
   }
 }
 
 export const defaultTheme: Theme = {
   colors: defaultColors,
+  space: defaultSpace,
   components: {
     Avatar: {
       defaultProps: defaultAvatarProps,
       styles: defaultAvatarStyles
     },
     AvatarText: {
+      defaultProps: {},
       styles: defaultAvatarTextStyles
     },
     Button: {
       defaultProps: defaultButtonProps,
-      styles: {}
+      styles: defaultButtonStyles
+    },
+    ButtonText: {
+      defaultProps: {},
+      styles: defaultButtonTextStyles
     }
   }
 }
