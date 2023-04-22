@@ -1,6 +1,5 @@
 import type { FlexStyle, ViewProps, ViewStyle } from "react-native";
-import type { ComponentStyles, PropsWithStyle } from "../../types";
-import type { Theme } from "..";
+import type { ComponentStyles, PropsWithStyle, Theme } from "..";
 
 export interface GroupProps extends Omit<ViewProps, 'children'> {
   row?: boolean

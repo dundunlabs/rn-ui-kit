@@ -1,4 +1,4 @@
-import type { ComponentStyles, ComponentStylesFn } from "../types"
+import type { ComponentStyles, ComponentStylesFn } from "../theme"
 
 const isObject = <O>(obj: O) => !!(
   typeof obj === 'object' &&
@@ -6,11 +6,24 @@ const isObject = <O>(obj: O) => !!(
   !Array.isArray(obj)
 )
 
-export function deepMerge(a: any, b: any) {
+export function mergeTheme(a: any, b: any, path: string[] = []) {
+  const [ns, _, attr] = path
+
+  if (ns === 'components' && attr === 'styles') {
+    return function(...args: any) {
+      let styles1 = a
+      let styles2 = b
+      if (typeof a === 'function') styles1 = a(...args)
+      if (typeof b === 'function') styles2 = b(...args)
+
+      return mergeTheme(styles1, styles2)
+    }
+  }
+
   if (isObject(a) && isObject(b)) {
     const obj = { ...a }
     for (const [key, value] of Object.entries(b)) {
-      obj[key] = deepMerge(obj[key], value)
+      obj[key] = mergeTheme(obj[key], value, [...path, key])
     }
 
     return obj

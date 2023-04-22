@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
 import useTheme from "../hooks/useTheme";
-import type { Theme } from "../theme";
+import type { Theme, PropsWithStyle } from "../theme";
 import type { StyleProp } from "react-native";
-import type { PropsWithStyle } from "../types";
 
 type ComponentStyle<P extends PropsWithStyle> = P['style'] extends StyleProp<infer S> ? S : undefined
 
