@@ -1,14 +1,14 @@
 import React from "react";
-import type { PressableProps, TextProps, TextStyle, ViewStyle } from "react-native";
-import type { Colors } from "../colors";
-import type { ComponentStyles } from "../../types";
-import type { Theme } from "..";
+import type { PressableProps, TextStyle, ViewStyle } from "react-native";
+import type { ColorStyle, Colors } from "../colors";
+import type { Theme, ComponentStyles } from "..";
+import type { TextProps } from "./text";
 
 export type ButtonVariant = 'solid' | 'outlined' | 'text'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 export interface ButtonProps extends Omit<PressableProps, 'children'> {
   variant?: ButtonVariant
-  color?: keyof Colors | `#${string}`
+  color?: ColorStyle
   size?: ButtonSize
   children?: React.ReactNode
 }
@@ -17,7 +17,7 @@ export interface ButtonStyles {
   sizes: Record<ButtonSize, ViewStyle | null>
   disabled: ViewStyle | null
 }
-export type ButtonTextProps = TextProps & Pick<ButtonProps, 'variant' | 'color'>
+export type ButtonTextProps = TextProps & Pick<ButtonProps, 'variant'>
 export interface ButtonTextStyles {
   variants: Record<ButtonVariant, TextStyle | null>
 }

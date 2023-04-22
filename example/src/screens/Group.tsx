@@ -1,11 +1,13 @@
-import { ScrollView, Text, View } from "react-native";
-import { Group } from 'rn-ui-kit'
+import { ScrollView, View } from "react-native";
+import { Group, Text } from 'rn-ui-kit'
 
 export default function GroupScreen() {
   return (
     <ScrollView>
       <View>
-        <Text>Column</Text>
+        <Text size='lg' color='textHeadline'>
+          Column
+        </Text>
         <Group>
           <Text>Item 1</Text>
           <Text>Item 2</Text>
@@ -14,7 +16,9 @@ export default function GroupScreen() {
       </View>
 
       <View>
-        <Text>Row</Text>
+        <Text size='lg' color='textHeadline'>
+          Row
+        </Text>
         <Group row>
           <Text>Item 1</Text>
           <Text>Item 2</Text>
@@ -23,7 +27,9 @@ export default function GroupScreen() {
       </View>
 
       <View>
-        <Text>Spacing</Text>
+        <Text size='lg' color='textHeadline'>
+          Spacing
+        </Text>
         <Group row spacing={2}>
           <Text>Item 1</Text>
           <Text>Item 2</Text>

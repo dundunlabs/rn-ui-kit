@@ -1,19 +1,17 @@
 import React from "react";
 import withDefaultProps from "../hocs/withDefaultProps";
 import withStyle from "../hocs/withStyle";
-import { Pressable, Text } from "react-native";
+import Text from "./Text";
+import { Pressable } from "react-native";
 import type { ButtonProps, ButtonTextProps} from "../theme/components/button";
 import { resolveComponentStyles } from "../utils";
-import { Colors } from "../theme/colors";
 
 const ButtonText = withStyle(Text)<ButtonTextProps>((theme, props) => {
-  const { colors, components: { ButtonText: { styles: cStyles } } } = theme
-  const { variant, color = 'primary' } = props
+  const { components: { ButtonText: { styles: cStyles } } } = theme
+  const { variant } = props
   const styles = resolveComponentStyles(cStyles, theme, props)
-  const c = color in colors ? colors[color as keyof Colors] : color
 
   return {
-    color: c,
     ...(variant && styles.variants[variant])
   }
 })

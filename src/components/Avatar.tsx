@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { Image, View, Text } from "react-native"
+import { Image, View } from "react-native"
 import withStyle from "../hocs/withStyle"
 import withDefaultProps from "../hocs/withDefaultProps"
 import type { AvatarProps, AvatarTextProps } from "../theme/components/avatar"
 import { resolveComponentStyles } from "../utils"
+import Text from "./Text"
 
 const StyledImage = withStyle(Image)<{ error: boolean }>((_, { error }) => error ? {} : {
   width: '100%',

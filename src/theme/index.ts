@@ -1,19 +1,23 @@
 import { mergeTheme } from "../utils"
 
-import { defaultColors } from "./colors"
 import { defaultSpace } from "./space"
+import { defaultColors } from "./colors"
+import { defaultFontSizes } from "./fontSizes"
 
+import { defaultGroupProps, defaultGroupStyles } from "./components/group"
 import { AvatarTextProps, defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
 import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonStyles, defaultButtonTextStyles } from "./components/button"
-import { defaultGroupProps, defaultGroupStyles } from "./components/group"
+import { defaultTextProps, defaultTextStyles } from "./components/text"
 
 import type { StyleProp } from "react-native"
-import type { Colors } from "./colors"
 import type { Space } from "./space"
+import type { Colors } from "./colors"
+import type { FontSize } from "./fontSizes"
 
 import type { GroupProps, GroupStyles } from "./components/group"
 import type { AvatarProps, AvatarStyles, AvatarTextStyles } from "./components/avatar"
 import type { ButtonProps, ButtonStyles } from "./components/button"
+import type { TextProps, TextStyles } from "./components/text"
 
 export type Subset<T> = {
   [k in keyof T]?: T[k] extends object
@@ -40,14 +44,16 @@ export interface PropsWithStyle<S = any> {
 }
 
 export interface Theme {
-  colors: Colors
   space: Space
+  colors: Colors
+  fontSizes: Record<FontSize, number>
   components: {
+    Group: ComponentTheme<Theme, GroupProps, GroupStyles>
     Avatar: ComponentTheme<Theme, AvatarProps, AvatarStyles>
     AvatarText: ComponentTheme<Theme, AvatarTextProps, AvatarTextStyles>
     Button: ComponentTheme<Theme, ButtonProps, ButtonStyles>
     ButtonText: ComponentTheme<Theme, ButtonTextProps, ButtonTextStyles>
-    Group: ComponentTheme<Theme, GroupProps, GroupStyles>
+    Text: ComponentTheme<Theme, TextProps, TextStyles>
   }
 }
 
@@ -62,9 +68,14 @@ export interface ThemeSubset extends Subset<Omit<Theme, 'components'>> {
 }
 
 export const defaultTheme: Theme = {
-  colors: defaultColors,
   space: defaultSpace,
+  colors: defaultColors,
+  fontSizes: defaultFontSizes,
   components: {
+    Group: {
+      defaultProps: defaultGroupProps,
+      styles: defaultGroupStyles
+    },
     Avatar: {
       defaultProps: defaultAvatarProps,
       styles: defaultAvatarStyles
@@ -81,9 +92,9 @@ export const defaultTheme: Theme = {
       defaultProps: {},
       styles: defaultButtonTextStyles
     },
-    Group: {
-      defaultProps: defaultGroupProps,
-      styles: defaultGroupStyles
+    Text: {
+      defaultProps: defaultTextProps,
+      styles: defaultTextStyles
     }
   }
 }

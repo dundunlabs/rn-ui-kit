@@ -3,7 +3,7 @@ import { View } from "react-native";
 import withDefaultProps from "../hocs/withDefaultProps";
 import withStyle from "../hocs/withStyle";
 import { resolveComponentStyles } from "../utils";
-import { GroupProps } from "../theme/components/group";
+import type { GroupProps } from "../theme/components/group";
 import useTheme from "../hooks/useTheme";
 import type { FlexStyle } from "react-native";
 

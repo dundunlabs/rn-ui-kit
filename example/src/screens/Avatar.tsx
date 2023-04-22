@@ -1,11 +1,13 @@
-import { ScrollView, Text, View } from 'react-native'
-import { Group, Avatar } from 'rn-ui-kit'
+import { ScrollView, View } from 'react-native'
+import { Group, Avatar, Text } from 'rn-ui-kit'
 
 export default function AvatarScreen() {
   return (
     <ScrollView>
       <View>
-        <Text>Variants</Text>
+        <Text size='lg' color='textHeadline'>
+          Variants
+        </Text>
         <Group row spacing={2}>
           <Avatar
             source={{ uri: 'https://mui.com/static/images/avatar/1.jpg' }}
@@ -22,7 +24,9 @@ export default function AvatarScreen() {
       </View>
 
       <View>
-        <Text>Sizes</Text>
+        <Text size='lg' color='textHeadline'>
+          Sizes
+        </Text>
         <Group row spacing={2}>
           <Avatar
             size='sm'
@@ -43,7 +47,9 @@ export default function AvatarScreen() {
       </View>
 
       <View>
-        <Text>Letters</Text>
+        <Text size='lg' color='textHeadline'>
+          Letters
+        </Text>
         <Group row spacing={2}>
           <Avatar
             alt='John Doe'
@@ -56,7 +62,9 @@ export default function AvatarScreen() {
       </View>
 
       <View>
-        <Text>Fallbacks</Text>
+        <Text size='lg' color='textHeadline'>
+          Fallbacks
+        </Text>
         <Group row spacing={2}>
           <Avatar
             source={{ uri: 'https://mui.com/static/images/avatar/broken-image.jpg' }}

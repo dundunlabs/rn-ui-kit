@@ -1,5 +1,5 @@
-import { SectionList, Text } from "react-native"
-import { Button } from 'rn-ui-kit'
+import { SectionList } from "react-native"
+import { Button, Text } from 'rn-ui-kit'
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
 import type { MainRouteParamList } from "../routes"
 
@@ -24,7 +24,9 @@ export default function Home({ navigation }: NativeStackScreenProps<MainRoutePar
     <SectionList
       sections={sections}
       renderSectionHeader={({ section }) => (
-        <Text>{section.title}</Text>
+        <Text size='lg' color="textHeadline">
+          {section.title}
+        </Text>
       )}
       renderItem={({ item }) => {
         return (

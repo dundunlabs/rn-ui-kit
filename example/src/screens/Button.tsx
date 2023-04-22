@@ -1,11 +1,13 @@
-import { Alert, ScrollView, Text, View } from 'react-native'
-import { Group, Button } from 'rn-ui-kit'
+import { Alert, ScrollView, View } from 'react-native'
+import { Group, Button, Text } from 'rn-ui-kit'
 
 export default function ButtonScreen() {
   return (
     <ScrollView>
       <View>
-        <Text>Variants</Text>
+        <Text size='lg' color='textHeadline'>
+          Variants
+        </Text>
         <Group row spacing={2}>
           <Button
             onPress={() => Alert.alert('Hello world!')}
@@ -28,7 +30,9 @@ export default function ButtonScreen() {
       </View>
 
       <View>
-        <Text>Sizes</Text>
+        <Text size='lg' color='textHeadline'>
+          Sizes
+        </Text>
         <Group row spacing={2} align='flex-start'>
           <Button
             size='sm'
@@ -51,7 +55,9 @@ export default function ButtonScreen() {
       </View>
 
       <View>
-        <Text>Colors</Text>
+        <Text size='lg' color='textHeadline'>
+          Colors
+        </Text>
         <Group row spacing={2}>
           <Button
             onPress={() => Alert.alert('Hello world!')}
@@ -80,7 +86,9 @@ export default function ButtonScreen() {
       </View>
 
       <View>
-        <Text>Disabled</Text>
+        <Text size='lg' color='textHeadline'>
+          Disabled
+        </Text>
         <Group row spacing={2}>
           <Button
             disabled

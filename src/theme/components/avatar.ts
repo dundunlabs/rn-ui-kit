@@ -1,6 +1,6 @@
-import type { StyleProp, ImageProps, ImageStyle, TextStyle, ViewStyle, TextProps } from "react-native"
-import type { ComponentStyles } from "../../types"
-import type { Theme } from ".."
+import type { StyleProp, ImageProps, ImageStyle, TextStyle, ViewStyle } from "react-native"
+import type { Theme, ComponentStyles } from ".."
+import type { TextProps } from "./text"
 
 export type AvatarVariant = 'circular' | 'rounded' | 'square'
 export type AvatarSize = 'sm' | 'md' | 'lg'
