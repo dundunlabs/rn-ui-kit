@@ -39,6 +39,7 @@ const Button = withStyle(UnstyledButton)((theme, props) => {
   return {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: colors.transparent,
     ...styles.variants[variant],
