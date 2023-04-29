@@ -8,7 +8,8 @@ const sections = [
     title: 'Components',
     data: [
       'Avatar',
-      'Button'
+      'Button',
+      'Text'
     ]
   },
   {

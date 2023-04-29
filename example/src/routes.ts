@@ -4,12 +4,14 @@ import Home from "./screens/Home";
 import Group from "./screens/Group";
 import Avatar from "./screens/Avatar";
 import Button from "./screens/Button";
+import Text from "./screens/Text";
 
 export type MainRouteParamList = {
   Home: undefined
   Group: undefined
   Avatar: undefined
   Button: undefined
+  Text: undefined
 }
 
 export const mainRoutes: RouteConfig<
@@ -34,5 +36,9 @@ export const mainRoutes: RouteConfig<
   {
     name: 'Button',
     component: Button
+  },
+  {
+    name: 'Text',
+    component: Text
   }
 ]
