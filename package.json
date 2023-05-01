@@ -23,10 +23,12 @@
     "microbundle": "^0.15.1",
     "react": "^18.2.0",
     "react-native": "^0.71.6",
+    "react-native-svg": "^13.9.0",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-native": "^0.71.6"
+    "react-native": "^0.71.6",
+    "react-native-svg": "^13.9.0"
   }
 }

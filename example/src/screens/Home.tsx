@@ -9,7 +9,8 @@ const sections = [
     data: [
       'Avatar',
       'Button',
-      'Text'
+      'Text',
+      'Icon'
     ]
   },
   {

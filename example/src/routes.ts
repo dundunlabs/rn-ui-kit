@@ -5,6 +5,7 @@ import Group from "./screens/Group";
 import Avatar from "./screens/Avatar";
 import Button from "./screens/Button";
 import Text from "./screens/Text";
+import Icon from "./screens/Icon";
 
 export type MainRouteParamList = {
   Home: undefined
@@ -12,6 +13,7 @@ export type MainRouteParamList = {
   Avatar: undefined
   Button: undefined
   Text: undefined
+  Icon: undefined
 }
 
 export const mainRoutes: RouteConfig<
@@ -40,5 +42,9 @@ export const mainRoutes: RouteConfig<
   {
     name: 'Text',
     component: Text
+  },
+  {
+    name: 'Icon',
+    component: Icon
   }
 ]
