@@ -15,7 +15,7 @@ export interface IconProps extends SvgProps {
   iconSet?: string
   variant?: string
   color?: ColorStyle
-  size?: FontSize | number
+  size?: FontSize | number | '100%'
   loader?: IconLoader
 }
 

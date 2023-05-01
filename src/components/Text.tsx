@@ -6,11 +6,13 @@ import type { Colors } from "../theme/colors";
 
 const Text = withStyle(RNText)<TextProps>((theme, props) => {
   const { colors, fontSizes } = theme
-  const { size = 'sm', color = 'textDefault' } = props
+  const { size = 'sm', color = 'textDefault', weight, leading } = props
 
   return {
     fontSize: typeof size === 'number' ? size : fontSizes[size],
-    color: color in colors ? colors[color as keyof Colors] : color
+    color: color in colors ? colors[color as keyof Colors] : color,
+    ...(weight && { fontWeight: weight }),
+    ...(leading && { lineHeight: leading })
   }
 })
 

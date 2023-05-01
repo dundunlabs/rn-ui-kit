@@ -9,6 +9,7 @@ import { AvatarTextProps, defaultAvatarProps, defaultAvatarStyles, defaultAvatar
 import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonStyles, defaultButtonTextStyles } from "./components/button"
 import { defaultTextProps, defaultTextStyles } from "./components/text"
 import { defaultIconProps, defaultIconStyles } from "./components/icon"
+import { defaultBadgeProps, defaultBadgeStyles } from "./components/badge"
 
 import type { StyleProp } from "react-native"
 import type { Space } from "./space"
@@ -20,6 +21,7 @@ import type { AvatarProps, AvatarStyles, AvatarTextStyles } from "./components/a
 import type { ButtonProps, ButtonStyles } from "./components/button"
 import type { TextProps, TextStyles } from "./components/text"
 import type { IconProps, IconStyles } from "./components/icon"
+import type { BadgeProps, BadgeStyles } from "./components/badge"
 
 export type Subset<T> = {
   [k in keyof T]?: T[k] extends object
@@ -57,6 +59,7 @@ export interface Theme {
     ButtonText: ComponentTheme<Theme, ButtonTextProps, ButtonTextStyles>
     Text: ComponentTheme<Theme, TextProps, TextStyles>
     Icon: ComponentTheme<Theme, IconProps, IconStyles>
+    Badge: ComponentTheme<Theme, BadgeProps, BadgeStyles>
   }
 }
 
@@ -102,6 +105,10 @@ export const defaultTheme: Theme = {
     Icon: {
       defaultProps: defaultIconProps,
       styles: defaultIconStyles
+    },
+    Badge: {
+      defaultProps: defaultBadgeProps,
+      styles: defaultBadgeStyles
     }
   }
 }

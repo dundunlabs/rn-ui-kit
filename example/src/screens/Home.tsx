@@ -10,7 +10,8 @@ const sections = [
       'Avatar',
       'Button',
       'Text',
-      'Icon'
+      'Icon',
+      'Badge'
     ]
   },
   {
