@@ -11,6 +11,7 @@ import { defaultTextProps, defaultTextStyles } from "./components/text"
 import { defaultIconProps, defaultIconStyles } from "./components/icon"
 import { defaultBadgeProps, defaultBadgeStyles } from "./components/badge"
 import { defaultDividerProps } from "./components/divider"
+import { defaultListItemProps } from "./components/listItem"
 
 import type { StyleProp } from "react-native"
 import type { Space } from "./space"
@@ -24,6 +25,7 @@ import type { TextProps, TextStyles } from "./components/text"
 import type { IconProps, IconStyles } from "./components/icon"
 import type { BadgeProps, BadgeStyles } from "./components/badge"
 import type { DividerProps } from "./components/divider"
+import type { ListItemProps } from "./components/listItem"
 
 export type Subset<T> = {
   [k in keyof T]?: T[k] extends object
@@ -63,6 +65,7 @@ export interface Theme {
     Icon: ComponentTheme<Theme, IconProps, IconStyles>
     Badge: ComponentTheme<Theme, BadgeProps, BadgeStyles>
     Divider: ComponentTheme<Theme, DividerProps, {}>
+    ListItem: ComponentTheme<Theme, ListItemProps, {}>
   }
 }
 
@@ -115,6 +118,10 @@ export const defaultTheme: Theme = {
     },
     Divider: {
       defaultProps: defaultDividerProps,
+      styles: {}
+    },
+    ListItem: {
+      defaultProps: defaultListItemProps,
       styles: {}
     }
   }

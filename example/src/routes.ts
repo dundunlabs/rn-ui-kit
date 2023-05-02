@@ -8,6 +8,9 @@ import Text from "./screens/Text";
 import Icon from "./screens/Icon";
 import Badge from "./screens/Badge";
 import Divider from "./screens/Divider";
+import ListItem from "./screens/ListItem";
+import BasicList from "./screens/BasicList";
+import ListDecorator from "./screens/ListDecorator";
 
 export type MainRouteParamList = {
   Home: undefined
@@ -18,6 +21,9 @@ export type MainRouteParamList = {
   Icon: undefined
   Badge: undefined
   Divider: undefined
+  ListItem: undefined
+  BasicList: undefined
+  ListDecorator: undefined
 }
 
 export const mainRoutes: RouteConfig<
@@ -58,5 +64,17 @@ export const mainRoutes: RouteConfig<
   {
     name: 'Divider',
     component: Divider
+  },
+  {
+    name: 'ListItem',
+    component: ListItem
+  },
+  {
+    name: 'BasicList',
+    component: BasicList
+  },
+  {
+    name: 'ListDecorator',
+    component: ListDecorator
   }
 ]
