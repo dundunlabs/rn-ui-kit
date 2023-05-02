@@ -10,6 +10,7 @@ import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonSty
 import { defaultTextProps, defaultTextStyles } from "./components/text"
 import { defaultIconProps, defaultIconStyles } from "./components/icon"
 import { defaultBadgeProps, defaultBadgeStyles } from "./components/badge"
+import { defaultDividerProps } from "./components/divider"
 
 import type { StyleProp } from "react-native"
 import type { Space } from "./space"
@@ -22,6 +23,7 @@ import type { ButtonProps, ButtonStyles } from "./components/button"
 import type { TextProps, TextStyles } from "./components/text"
 import type { IconProps, IconStyles } from "./components/icon"
 import type { BadgeProps, BadgeStyles } from "./components/badge"
+import type { DividerProps } from "./components/divider"
 
 export type Subset<T> = {
   [k in keyof T]?: T[k] extends object
@@ -60,6 +62,7 @@ export interface Theme {
     Text: ComponentTheme<Theme, TextProps, TextStyles>
     Icon: ComponentTheme<Theme, IconProps, IconStyles>
     Badge: ComponentTheme<Theme, BadgeProps, BadgeStyles>
+    Divider: ComponentTheme<Theme, DividerProps, {}>
   }
 }
 
@@ -109,6 +112,10 @@ export const defaultTheme: Theme = {
     Badge: {
       defaultProps: defaultBadgeProps,
       styles: defaultBadgeStyles
+    },
+    Divider: {
+      defaultProps: defaultDividerProps,
+      styles: {}
     }
   }
 }

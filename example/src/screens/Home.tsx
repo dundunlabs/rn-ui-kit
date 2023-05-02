@@ -11,7 +11,8 @@ const sections = [
       'Button',
       'Text',
       'Icon',
-      'Badge'
+      'Badge',
+      'Divider'
     ]
   },
   {

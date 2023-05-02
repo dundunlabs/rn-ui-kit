@@ -7,6 +7,7 @@ import Button from "./screens/Button";
 import Text from "./screens/Text";
 import Icon from "./screens/Icon";
 import Badge from "./screens/Badge";
+import Divider from "./screens/Divider";
 
 export type MainRouteParamList = {
   Home: undefined
@@ -16,6 +17,7 @@ export type MainRouteParamList = {
   Text: undefined
   Icon: undefined
   Badge: undefined
+  Divider: undefined
 }
 
 export const mainRoutes: RouteConfig<
@@ -52,5 +54,9 @@ export const mainRoutes: RouteConfig<
   {
     name: 'Badge',
     component: Badge
+  },
+  {
+    name: 'Divider',
+    component: Divider
   }
 ]

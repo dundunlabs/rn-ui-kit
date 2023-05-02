@@ -8,6 +8,7 @@ export interface Colors {
   textDefault: string
   textHeadline: string
   textMuted: string
+  divider: string
 }
 
 export type ColorStyle = keyof Colors | `#${string}`
@@ -21,5 +22,6 @@ export const defaultColors: Colors = {
   transparent: 'transparent',
   textDefault: '#374151',
   textHeadline: '#111827',
-  textMuted: '#6b7280'
+  textMuted: '#6b7280',
+  divider: '#f3f4f6'
 }

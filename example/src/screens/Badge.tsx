@@ -1,18 +1,7 @@
 import { ScrollView, View } from "react-native";
-import { withStyle, Group, Text, Icon, Badge } from 'rn-ui-kit'
-
-const Rectangle = withStyle(View)({
-  width: 40,
-  height: 40,
-  backgroundColor: 'gray'
-})
-
-const Circle = withStyle(View)({
-  width: 40,
-  height: 40,
-  borderRadius: 20,
-  backgroundColor: 'gray'
-})
+import { Group, Text, Icon, Badge } from 'rn-ui-kit'
+import Rectangle from "../components/Rectangle";
+import Circle from "../components/Circle";
 
 export default function BadgeScreen() {
   return (
