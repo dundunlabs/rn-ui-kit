@@ -12,11 +12,13 @@ import List from "./screens/List";
 import BasicList from "./screens/BasicList";
 import ListDecorator from "./screens/ListDecorator";
 import Container from "./screens/Container";
+import Modal from "./screens/Modal";
 
 export type MainRouteParamList = {
   Home: undefined
   Group: undefined
   Container: undefined
+  Modal: undefined
   Avatar: undefined
   Button: undefined
   Text: undefined
@@ -42,6 +44,10 @@ export const mainRoutes: RouteConfig<
   {
     name: 'Group',
     component: Group
+  },
+  {
+    name: 'Modal',
+    component: Modal
   },
   {
     name: 'Container',

@@ -6,6 +6,7 @@ import { defaultFontSizes } from "./fontSizes"
 
 import { defaultGroupProps, defaultGroupStyles } from "./components/group"
 import { defaultContainerProps } from "./components/container"
+import { defaultModalProps } from "./components/modal"
 import { AvatarTextProps, defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
 import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonStyles, defaultButtonTextStyles } from "./components/button"
 import { defaultTextProps, defaultTextStyles } from "./components/text"
@@ -24,6 +25,7 @@ import type { Colors } from "./colors"
 import type { FontSize } from "./fontSizes"
 
 import type { GroupProps, GroupStyles } from "./components/group"
+import type { ModalProps } from "./components/modal"
 import type { AvatarProps, AvatarStyles, AvatarTextStyles } from "./components/avatar"
 import type { ButtonProps, ButtonStyles } from "./components/button"
 import type { TextProps, TextStyles } from "./components/text"
@@ -67,6 +69,7 @@ export interface Theme {
   components: {
     Group: ComponentTheme<Theme, GroupProps, GroupStyles>
     Container: ComponentTheme<Theme, GroupProps, {}>
+    Modal: ComponentTheme<Theme, ModalProps, {}>
     Avatar: ComponentTheme<Theme, AvatarProps, AvatarStyles>
     AvatarText: ComponentTheme<Theme, AvatarTextProps, AvatarTextStyles>
     Button: ComponentTheme<Theme, ButtonProps, ButtonStyles>
@@ -106,6 +109,10 @@ export const defaultTheme: Theme = {
     },
     Container: {
       defaultProps: defaultContainerProps,
+      styles: {}
+    },
+    Modal: {
+      defaultProps: defaultModalProps,
       styles: {}
     },
     Avatar: {

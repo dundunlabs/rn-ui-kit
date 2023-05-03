@@ -10,7 +10,8 @@ const sections: {
     title: 'Layout',
     data: [
       'Group',
-      'Container'
+      'Container',
+      'Modal'
     ]
   },
   {
