@@ -1,6 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { FlatList, StyleSheet } from "react-native";
-import { ListItem, Text } from "rn-ui-kit";
+import { Text, List } from "rn-ui-kit";
 import { MainRouteParamList } from "../routes";
 
 const data = [
@@ -16,20 +15,13 @@ const data = [
 
 export default function ListItemScreen({ navigation }: NativeStackScreenProps<MainRouteParamList>) {
   return (
-    <FlatList
+    <List
       data={data}
-      style={styles.list}
       renderItem={({ item }) => (
-        <ListItem onPress={() => navigation.navigate(item.screen)}>
+        <List.Item onPress={() => navigation.navigate(item.screen)}>
           <Text>{item.title}</Text>
-        </ListItem>
+        </List.Item>
       )}
     />
   )
 }
-
-const styles = StyleSheet.create({
-  list: {
-    paddingVertical: 8
-  }
-})

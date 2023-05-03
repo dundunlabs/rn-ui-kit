@@ -1,4 +1,4 @@
-import type { ComponentStyles, Theme } from "..";
+import type { GenericComponentStyles, Theme } from "..";
 import type { ColorStyle } from "../colors";
 import type { SvgProps } from "react-native-svg";
 import type { FontSize } from "../fontSizes";
@@ -30,5 +30,5 @@ export const defaultIconProps: Partial<IconProps> = {
   loader: ({ icon, iconSet, variant }) => `https://svgstorage.vercel.app/icon-sets/${iconSet}/${variant}/${icon}.svg`
 }
 
-export const defaultIconStyles: ComponentStyles<Theme, IconProps, IconStyles> = {
+export const defaultIconStyles: GenericComponentStyles<Theme, IconProps, IconStyles> = {
 }

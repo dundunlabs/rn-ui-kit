@@ -1,5 +1,5 @@
 import type { TextProps as RNTextProps, TextStyle } from "react-native";
-import type { ComponentStyles, Theme } from "..";
+import type { GenericComponentStyles, Theme } from "..";
 import type { ColorStyle } from "../colors";
 import { FontSize } from "../fontSizes";
 
@@ -18,5 +18,5 @@ export const defaultTextProps: Partial<TextProps> = {
   size: 'sm'
 }
 
-export const defaultTextStyles: ComponentStyles<Theme, TextProps, TextStyles> = {
+export const defaultTextStyles: GenericComponentStyles<Theme, TextProps, TextStyles> = {
 }

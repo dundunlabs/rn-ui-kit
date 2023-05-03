@@ -3,7 +3,7 @@ import useTheme from "../hooks/useTheme";
 import type { Theme, PropsWithStyle } from "../theme";
 import type { StyleProp } from "react-native";
 
-type ComponentStyle<P extends PropsWithStyle> = P['style'] extends StyleProp<infer S> ? S : undefined
+export type ComponentStyle<P extends PropsWithStyle> = P['style'] extends StyleProp<infer S> ? S : undefined
 
 type StyleFn<S, P> = (theme: Theme, props: P) => S
 
@@ -28,4 +28,4 @@ export default function withStyle<P extends PropsWithStyle>(Component: React.Com
       )
     }
   }
-  }
+}

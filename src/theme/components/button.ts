@@ -1,7 +1,7 @@
 import React from "react";
 import type { PressableProps, TextStyle, ViewStyle } from "react-native";
 import type { ColorStyle, Colors } from "../colors";
-import type { Theme, ComponentStyles } from "..";
+import type { Theme, GenericComponentStyles } from "..";
 import type { TextProps } from "./text";
 
 export type ButtonVariant = 'solid' | 'outlined' | 'text'
@@ -28,7 +28,7 @@ export const defaultButtonProps: ButtonProps = {
   size: 'md'
 }
 
-export const defaultButtonStyles: ComponentStyles<Theme, ButtonProps, ButtonStyles> = ({ colors, space }, { color = 'primary' }) => {
+export const defaultButtonStyles: GenericComponentStyles<Theme, ButtonProps, ButtonStyles> = ({ colors, space }, { color = 'primary' }) => {
   const c = color in colors ? colors[color as keyof Colors] : color
 
   return {
@@ -62,7 +62,7 @@ export const defaultButtonStyles: ComponentStyles<Theme, ButtonProps, ButtonStyl
   }
 }
 
-export const defaultButtonTextStyles: ComponentStyles<Theme, ButtonTextProps, ButtonTextStyles> = ({ colors }, {}) => ({
+export const defaultButtonTextStyles: GenericComponentStyles<Theme, ButtonTextProps, ButtonTextStyles> = ({ colors }, {}) => ({
   variants: {
     solid: {
       color: colors.white

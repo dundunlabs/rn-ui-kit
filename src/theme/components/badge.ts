@@ -1,5 +1,5 @@
 import type { ViewStyle, TextStyle } from "react-native";
-import type { ComponentStyles, Theme } from "..";
+import type { GenericComponentStyles, Theme } from "..";
 import type { ColorStyle } from "../colors";
 import type { FontSize } from "../fontSizes";
 
@@ -34,7 +34,7 @@ export const defaultBadgeProps: Partial<BadgeProps> = {
   position: 'top-right'
 }
 
-export const defaultBadgeStyles: ComponentStyles<Theme, BadgeProps, BadgeStyles> = {
+export const defaultBadgeStyles: GenericComponentStyles<Theme, BadgeProps, BadgeStyles> = {
   sizes: {
     sm: 8,
     md: 12,

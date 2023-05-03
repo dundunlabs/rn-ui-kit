@@ -11,7 +11,7 @@ import { defaultTextProps, defaultTextStyles } from "./components/text"
 import { defaultIconProps, defaultIconStyles } from "./components/icon"
 import { defaultBadgeProps, defaultBadgeStyles } from "./components/badge"
 import { defaultDividerProps } from "./components/divider"
-import { defaultListItemProps } from "./components/listItem"
+import { defaultListProps, defaultListStyles, defaultListItemProps, defaultListItemStyles } from "./components/list"
 
 import type { StyleProp } from "react-native"
 import type { Space } from "./space"
@@ -25,7 +25,7 @@ import type { TextProps, TextStyles } from "./components/text"
 import type { IconProps, IconStyles } from "./components/icon"
 import type { BadgeProps, BadgeStyles } from "./components/badge"
 import type { DividerProps } from "./components/divider"
-import type { ListItemProps } from "./components/listItem"
+import type { CommonListProps, ListStyles, ListItemProps, ListItemStyles } from "./components/list"
 
 export type Subset<T> = {
   [k in keyof T]?: T[k] extends object
@@ -39,11 +39,11 @@ export type Subset<T> = {
 
 export type ComponentStylesFn<T, P, S> = (theme: T, props: P) => S
 
-export type ComponentStyles<T, P, S> = S | ComponentStylesFn<T, P, S>
+export type GenericComponentStyles<T, P, S> = S | ComponentStylesFn<T, P, S>
 
 export type ComponentTheme<T, P, S> = {
   defaultProps: Partial<P>,
-  styles: ComponentStyles<T, P, S>
+  styles: GenericComponentStyles<T, P, S>
 }
 
 
@@ -65,9 +65,14 @@ export interface Theme {
     Icon: ComponentTheme<Theme, IconProps, IconStyles>
     Badge: ComponentTheme<Theme, BadgeProps, BadgeStyles>
     Divider: ComponentTheme<Theme, DividerProps, {}>
-    ListItem: ComponentTheme<Theme, ListItemProps, {}>
+    List: ComponentTheme<Theme, CommonListProps, ListStyles>
+    ListItem: ComponentTheme<Theme, ListItemProps, ListItemStyles>
   }
 }
+
+export type ComponentName = keyof Theme['components']
+
+export type ComponentStyles<K extends ComponentName> = Theme['components'][K]['styles'] extends GenericComponentStyles<Theme, any, infer S> ? S : never
 
 type ComponentThemeSubset<T> = T extends ComponentTheme<Theme, infer P, infer S>
   ? ComponentTheme<Theme, Subset<P>, Subset<S>>
@@ -75,7 +80,7 @@ type ComponentThemeSubset<T> = T extends ComponentTheme<Theme, infer P, infer S>
 
 export interface ThemeSubset extends Subset<Omit<Theme, 'components'>> {
   components?: {
-    [k in keyof Theme['components']]?: Partial<ComponentThemeSubset<Theme['components'][k]>>
+    [k in ComponentName]?: Partial<ComponentThemeSubset<Theme['components'][k]>>
   }
 }
 
@@ -120,9 +125,13 @@ export const defaultTheme: Theme = {
       defaultProps: defaultDividerProps,
       styles: {}
     },
+    List: {
+      defaultProps: defaultListProps,
+      styles: defaultListStyles
+    },
     ListItem: {
       defaultProps: defaultListItemProps,
-      styles: {}
+      styles: defaultListItemStyles
     }
   }
 }

@@ -1,5 +1,5 @@
 import type { FlexStyle, ViewProps, ViewStyle } from "react-native";
-import type { ComponentStyles, PropsWithStyle, Theme } from "..";
+import type { GenericComponentStyles, PropsWithStyle, Theme } from "..";
 
 export type GroupChild = React.ReactElement<PropsWithStyle<FlexStyle>> | undefined
 
@@ -21,5 +21,5 @@ export interface GroupStyles {
 export const defaultGroupProps: GroupProps = {
 }
 
-export const defaultGroupStyles: ComponentStyles<Theme, GroupProps, GroupStyles> = {
+export const defaultGroupStyles: GenericComponentStyles<Theme, GroupProps, GroupStyles> = {
 }

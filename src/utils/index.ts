@@ -1,4 +1,4 @@
-import type { ComponentStyles, ComponentStylesFn } from "../theme"
+import type { GenericComponentStyles, ComponentStylesFn } from "../theme"
 
 const isObject = <O>(obj: O) => !!(
   typeof obj === 'object' &&
@@ -32,9 +32,9 @@ export function mergeTheme(a: any, b: any, path: string[] = []) {
   return b
 }
 
-const isComponentStylesFn = <T, P, S>(styles: ComponentStyles<T, P, S>): styles is ComponentStylesFn<T, P, S> => typeof styles === 'function'
+const isComponentStylesFn = <T, P, S>(styles: GenericComponentStyles<T, P, S>): styles is ComponentStylesFn<T, P, S> => typeof styles === 'function'
 
-export function resolveComponentStyles<T, P, S>(styles: ComponentStyles<T, P, S>, theme: T, props: P) {
+export function resolveComponentStyles<T, P, S>(styles: GenericComponentStyles<T, P, S>, theme: T, props: P) {
   if (isComponentStylesFn(styles)) return styles(theme, props)
   return styles
 }
