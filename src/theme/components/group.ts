@@ -12,6 +12,10 @@ export interface GroupProps extends Omit<ViewProps, 'children'> {
   align?: FlexStyle['alignItems']
   justify?: FlexStyle['justifyContent']
   children?: GroupChild[] | GroupChild
+  px?: number
+  py?: number
+  mx?: number
+  my?: number
 }
 
 export interface GroupStyles {

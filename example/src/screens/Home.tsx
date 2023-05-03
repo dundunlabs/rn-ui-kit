@@ -2,7 +2,23 @@ import { List, Text } from 'rn-ui-kit'
 import type { NativeStackScreenProps } from "@react-navigation/native-stack"
 import type { MainRouteParamList } from "../routes"
 
-const sections = [
+const sections: {
+  title: string,
+  data: (keyof MainRouteParamList)[]
+}[] = [
+  {
+    title: 'Layout',
+    data: [
+      'Group',
+      'Container'
+    ]
+  },
+  {
+    title: 'Data display',
+    data: [
+      'List'
+    ]
+  },
   {
     title: 'Components',
     data: [
@@ -11,17 +27,10 @@ const sections = [
       'Text',
       'Icon',
       'Badge',
-      'Divider',
-      'List',
-    ]
-  },
-  {
-    title: 'Layout',
-    data: [
-      'Group'
+      'Divider'
     ]
   }
-] as const
+]
 
 export default function Home({ navigation }: NativeStackScreenProps<MainRouteParamList>) {
   return (

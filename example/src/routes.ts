@@ -11,10 +11,12 @@ import Divider from "./screens/Divider";
 import List from "./screens/List";
 import BasicList from "./screens/BasicList";
 import ListDecorator from "./screens/ListDecorator";
+import Container from "./screens/Container";
 
 export type MainRouteParamList = {
   Home: undefined
   Group: undefined
+  Container: undefined
   Avatar: undefined
   Button: undefined
   Text: undefined
@@ -40,6 +42,10 @@ export const mainRoutes: RouteConfig<
   {
     name: 'Group',
     component: Group
+  },
+  {
+    name: 'Container',
+    component: Container
   },
   {
     name: 'Avatar',

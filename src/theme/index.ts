@@ -5,6 +5,7 @@ import { defaultColors } from "./colors"
 import { defaultFontSizes } from "./fontSizes"
 
 import { defaultGroupProps, defaultGroupStyles } from "./components/group"
+import { defaultContainerProps } from "./components/container"
 import { AvatarTextProps, defaultAvatarProps, defaultAvatarStyles, defaultAvatarTextStyles } from "./components/avatar"
 import { ButtonTextProps, ButtonTextStyles, defaultButtonProps, defaultButtonStyles, defaultButtonTextStyles } from "./components/button"
 import { defaultTextProps, defaultTextStyles } from "./components/text"
@@ -65,6 +66,7 @@ export interface Theme {
   fontSizes: Record<FontSize, number>
   components: {
     Group: ComponentTheme<Theme, GroupProps, GroupStyles>
+    Container: ComponentTheme<Theme, GroupProps, {}>
     Avatar: ComponentTheme<Theme, AvatarProps, AvatarStyles>
     AvatarText: ComponentTheme<Theme, AvatarTextProps, AvatarTextStyles>
     Button: ComponentTheme<Theme, ButtonProps, ButtonStyles>
@@ -101,6 +103,10 @@ export const defaultTheme: Theme = {
     Group: {
       defaultProps: defaultGroupProps,
       styles: defaultGroupStyles
+    },
+    Container: {
+      defaultProps: defaultContainerProps,
+      styles: {}
     },
     Avatar: {
       defaultProps: defaultAvatarProps,

@@ -6,7 +6,7 @@ const data = [...Array(100)].map((_, i) => `Item ${i + 1}`)
 
 const sizes = ['sm', 'md', 'lg'] as const
 
-export default function BasicList() {
+export default function BasicListScreen() {
   const [size, setSize] = useState<typeof sizes[number]>('lg')
 
   return (

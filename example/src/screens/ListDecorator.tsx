@@ -2,7 +2,7 @@ import { Avatar, Icon, List, Text } from "rn-ui-kit";
 
 const data = [...Array(10)].map((_, i) => `Item ${i + 1}`)
 
-export default function ListDecorator() {
+export default function ListDecoratorScreen() {
   return (
     <List
       data={data}

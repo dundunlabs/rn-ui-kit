@@ -1,11 +1,10 @@
 import React, { cloneElement, isValidElement } from "react";
 import { View } from "react-native";
 import withDefaultProps from "../hocs/withDefaultProps";
-import withStyle from "../hocs/withStyle";
-import { resolveComponentStyles } from "../utils";
 import type { GroupProps } from "../theme/components/group";
 import useTheme from "../hooks/useTheme";
 import type { FlexStyle } from "react-native";
+import withResolvedStyle from "../hocs/withResolvedStyle";
 
 function UnstyledGroup({ row, spacing = 0, children, ...props }: GroupProps) {
   const { space } = useTheme()
@@ -30,17 +29,20 @@ function UnstyledGroup({ row, spacing = 0, children, ...props }: GroupProps) {
   )
 }
 
-const Group = withStyle(UnstyledGroup)((theme, props) => {
-  const { components: { Group: { styles: cStyles } } } = theme
-  const { row, reverse, wrap, align, justify, flex } = props
-  const _ = resolveComponentStyles(cStyles, theme, props)
+const Group = withResolvedStyle(UnstyledGroup, 'Group')((_, theme, props) => {
+  const { space } = theme
+  const { row, reverse, wrap, align, justify, flex, px, py, mx, my } = props
 
   return {
     flex,
     alignItems: align,
     justifyContent: justify,
     flexDirection: ((row ? 'row' : 'column') + (reverse ? '-reverse' : '')) as FlexStyle['flexDirection'],
-    ...(wrap && { flexWrap: 'wrap' })
+    ...(wrap && { flexWrap: 'wrap' }),
+    ...(px && { paddingHorizontal: space(px) }),
+    ...(py && { paddingVertical: space(py) }),
+    ...(mx && { marginHorizontal: space(mx) }),
+    ...(my && { marginVertical: space(my) })
   }
 })
 
