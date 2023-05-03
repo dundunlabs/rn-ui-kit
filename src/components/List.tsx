@@ -3,7 +3,7 @@ import { FlatList, SectionList, Pressable, View } from "react-native";
 import type { FlatListProps, SectionListProps } from "react-native";
 import useTheme from "../hooks/useTheme";
 import { resolveComponentStyles } from "../utils";
-import type { CommonListProps, ListItemProps } from "../theme/components/list";
+import type { CommonListProps, ListItemProps, ListSectionHeaderProps } from "../theme/components/list";
 import withDefaultProps from "../hocs/withDefaultProps";
 import Group from "./Group";
 import withStyle from "../hocs/withStyle";
@@ -27,6 +27,25 @@ function List<ItemT, SectionT>(props: CommonListProps & (FlatListProps<ItemT> | 
         : <FlatList {...rest} {...commonProps} />
       }
     </ListContext.Provider>
+  )
+}
+
+const ListSectionWrapper = withResolvedStyle(Group, 'ListSectionHeader')<CommonListProps>(({ sizes }, { colors }, { size = 'lg' }) => ({
+  ...sizes[size],
+  backgroundColor: colors.background
+}))
+
+function ListSectionHeader({ size: listSize, ...props }: ListSectionHeaderProps) {
+  const { size = listSize } = useContext(ListContext)
+
+  return (
+    <ListSectionWrapper
+      row
+      justify='space-between'
+      align="center"
+      size={size}
+      {...props}
+    />
   )
 }
 
@@ -61,5 +80,6 @@ function ListItem({ children, left, right, style, size: listSize, ...props }: Li
 }
 
 List.Item = withDefaultProps(ListItem, 'ListItem')
+List.SectionHeader = withDefaultProps(ListSectionHeader, 'ListSectionHeader')
 
 export default List

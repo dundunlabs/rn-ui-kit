@@ -2,6 +2,7 @@ export interface Colors {
   white: string
   black: string
   gray: string
+  background: string
   primary: string
   secondary: string
   transparent: string
@@ -17,6 +18,7 @@ export const defaultColors: Colors = {
   white: '#ffffff',
   black: '#000000',
   gray: '#d1d5db',
+  background: '#ffffff',
   primary: '#0891b2',
   secondary: '#7c3aed',
   transparent: 'transparent',

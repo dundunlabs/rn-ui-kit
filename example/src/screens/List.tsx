@@ -13,7 +13,7 @@ const data = [
   }
 ] as const
 
-export default function ListItemScreen({ navigation }: NativeStackScreenProps<MainRouteParamList>) {
+export default function ListScreen({ navigation }: NativeStackScreenProps<MainRouteParamList>) {
   return (
     <List
       data={data}
